@@ -1,0 +1,74 @@
+body {
+  position: relative;
+  background-color: black;
+  color: white;
+  width: 200vw;
+  height: 200vh;
+}
+#position {
+  display: flex;
+}
+#static {
+  /* position: relative; */
+  background-color: tomato;
+  padding: 50px;
+  justify-content: flex-start;
+}
+#relative {
+  /* 요소를 정적 위치에서 상대적으로 이동시킬 수 있다.  */
+  position: relative;
+  background-color: lightgreen;
+  padding: 50px;
+  /* position */
+  left: 500px;
+}
+#absolute {
+  /*  가장 가까운 부모 태그의 position : relative요소에 상대적으로 배치한다.   */
+  position: absolute;
+  background-color: aqua;
+  padding: 50px;
+  /* position */
+}
+#fixed {
+  /* 브라우저를 기준으로 고정된 위치에 배치한다. */
+  position: fixed;
+  background-color: green;
+  padding: 20px;
+  color: black;
+  /* position */
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+#sticky {
+  position: sticky;
+  top: 0;
+  background-color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+#overflowOverlay {
+  overflow: overlay;
+  background-color: lightblue;
+  margin-bottom: 10px;
+}
+
+#overflowHidden {
+  overflow: hidden;
+  background-color: lightgreen;
+  margin-bottom: 10px;
+}
+
+#overflowScroll {
+  /* overflow: scroll; */
+  background-color: lightyellow;
+  margin-bottom: 10px;
+}
+
+#overflowAuto {
+  overflow: auto;
+  background-color: lightpink;
+  margin-bottom: 10px;
+}
