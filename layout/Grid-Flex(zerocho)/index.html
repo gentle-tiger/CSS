@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NAVER</title>
+    <style>
+      * {
+        box-sizing: border-box; /*  기본값이 content-box이au, border-box를 하게 되면 개발자 도구에 computed의 border와 padding을 함께 지정하겠다는 것.. */
+      }
+      html,
+      body {
+        margin: 0px;
+      }
+      #header {
+        display: flex;
+        justify-content: center;
+      }
+      #header-center {
+        width: 1130px;
+        height: 160px; /* 높이 */
+        display: flex;
+        background-color: yellow;
+      }
+      #header-logo,
+      #header-search,
+      #header-home {
+        display: inline-block;
+      }
+      #header-logo {
+        display: flex;
+        align-items: center;
+        height: 100%; /* 현재 태그의 크기를 100% 사용한다. header-center의 높이를 전부 사용한다는 것.   */
+        width: 222px;
+        /* flex: 2; 이렇게 주게 되면 1:2 비율로 가져간다. search의 2배가 된다. 혼자서는 사실 의미가 없음. */
+      }
+      #header-logo a {
+      }
+      #header-logo a::before {
+        /* 이미지 크기에 맞게 조정해야함. */
+        background-image: url(./img/logo-history.png);
+        width: 210px;
+        height: 52px;
+        display: inline-block;
+        content: ""; /*  content 가 있어야 before 와 after가 먹는다. */
+        background-position: 10px 523.9px; /* 이미지 조정 */
+        position: relative;
+        top: 3px;
+      }
+      .blind {
+        position: absolute;
+        clip: rect(0 0 0 0);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        /* display: none; 화면에서 아예 지우고 싶을 때 // 이걸 하면 언되는게 스크린 리더가도 그것을 무시를 한다.
+        visibility: hidden; 공간은 차지하되 투명하게 넘겨 놓는 것. */
+      }
+      /* !! 가장 큰 틀을 잡고 그 밑의 태그들은 선택자로 잡는 것을 선호한다. 그러면 id를 무분별하게 사용하지 않을 수 있고, 각각의 태그들을 구분하기도 쉽다. */
+      #header-search {
+        display: flex;
+        align-items: center;
+        width: 586px;
+        height: 100%; /* 현재 태그의 크기를 100% 사용한다. header-center의 높이를 전부 사용한다는 것.   */
+        flex: 1; /* 원하는 태그의 부모에 flex를 주고, 해당 태그에 flex:1 을 주면 해당 태그가 차지할 수 있는 최대한의 크기로 늘어난다. 쫙 늘어남*/
+      }
+      #header-search form {
+        margin: 0;
+        display: flex;
+      }
+      #header-search-wrap {
+        border: 2px solid #19ce60;
+        border-radius: 2px;
+        width: 530px;
+        height: 56px;
+        background-color: #fff;
+      }
+      #header-search-input {
+        padding: 13px 15px;
+        outline: none; /*  input 창 클릭시 테두리 색이 바뀌는 것을 방지.  */
+        border: none; /*  기본 테두리 삭제  */
+        width: 444px;
+        height: 100%;
+        font-size: 18px;
+        line-height: 24px;
+        color: #000;
+        font-weight: 700;
+      }
+      #header-search button {
+        width: 56px;
+        height: 56px;
+        background: #19ce60;
+        display: inline-flex;
+        border: none;
+        justify-content: center;
+        align-items: center;
+      }
+      #header-search button:before {
+        background-image: url(./img/naverSky-logo.gif);
+        background-size: 148%;
+        display: inline-block;
+        width: 33px;
+        height: 33px;
+        content: "";
+        background-position: -7px -6px;
+      }
+      #header-home {
+      }
+      #main {
+        height: 9999px;
+        background-color: rgb(241, 245, 245);
+      }
+    </style>
+  </head>
+  <!-- 
+    1. 가로, 세로 구분 
+    2. 정보와 여백을 구분
+    3. 다시 이미지와 기능 등에 따라 다시 또 세분화 한다.    세분화 한 순서대로 만들어가면 된다.-->
+  <body>
+    <!-- BEM -->
+    <div id="header">
+      <div id="header-center">
+        <div id="header-logo">
+          <a href="#">
+            <span class="blind">로고</span>
+          </a>
+        </div>
+        <div id="header-search">
+          <form action="#">
+            <label class="blind" for="header-search-input">검색창</label>
+            <!-- 시각장애인들을 위해 라벨을 넣어서 검색하는 창이라는 것을 알려준다.   -->
+            <div id="header-search-wrap">
+              <input id="header-search-input" />
+              <div id="keyboard"></div>
+            </div>
+
+            <button>
+              <span class="blind">검색</span>
+            </button>
+          </form>
+        </div>
+        <div id="header-home">네이버를 시작페이지로</div>
+      </div>
+    </div>
+    <div id="main"></div>
+  </body>
+</html>
