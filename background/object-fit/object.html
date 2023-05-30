@@ -46,23 +46,31 @@
         /* border: 3px solid red; */
       }
       .cloneImgs > img {
-        width: 300px;
-        height: 300px;
+        width: 150px;
+        height: 150px;
         /* border: 3px solid blue; */
       }
       .cloneImg1 {
+        /* 대체 콘텐츠의 가로세로비를 유지하면서, 콘텐츠 박스 내부에 들어가도록 크기를 맞춤 조절한다.
+                서로의 가로세로비가 일치하지 않으면 객체가 레터박스처럼된다. */
         object-fit: fill;
       }
       .cloneImg2 {
+        /* 대체 콘텐츠의 가로세로비를 유지하면서, 요소 콘텐츠 박스를 가득 채운다. 
+                    서로의 가로세로비가 일치하지 않으면 객체 일부가 잘려나간다.  */
         object-fit: contain;
       }
       .cloneImg3 {
+        /* 요소 콘텐츠 박스 크기에 맞춰 콘텐츠 크기를 조절한다. 
+                    가로세로비가 일치하지 않으면 콘텐츠가 늘어난다.*/
         object-fit: cover;
       }
       .cloneImg4 {
+        /* 대체 콘텐츠의 크기를 조절하지 않는다.  */
         object-fit: none;
       }
       .cloneImg5 {
+        /*`none` 과 `contain` 중 대체 콘텐츠의 크기가 더 작아지는 값을 선택한다.  */
         object-fit: scale-down;
       }
 
